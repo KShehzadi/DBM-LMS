@@ -1,0 +1,46 @@
+Return-path: <maryamnawaz983@gmail.com>
+Received: from [10.115.3.13] (helo=smtp.maileig.com)
+	by bosmailscan01.eigbox.net with esmtp (Exim)
+	id 1itwcf-0006mz-7H
+	for jobs@triconbox.com; Tue, 21 Jan 2020 11:43:25 -0500
+Received: from mail-oi1-f175.google.com ([209.85.167.175])
+	by bosimpinc13 with bizsmtp
+	id t4jN210133nPRMM014jPSV; Tue, 21 Jan 2020 11:43:25 -0500
+X-EN-OrigIP: 209.85.167.175
+X-EN-IMPSID: t4jN210133nPRMM014jPSV
+Received: by mail-oi1-f175.google.com with SMTP id d62so3132814oia.11
+        for <jobs@triconbox.com>; Tue, 21 Jan 2020 08:43:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=k5UvKdJdRJaur7YUm6w4kyDYy3iKKR0fU3bviNdh0K8=;
+        b=QdnKqwWZj0dyjca6ENuMnd2tw+uPhWOcCpSa+4UTKc0f5NZ0bDpRuKH+/cspkLhnw+
+         Z0V21npIz0IULcHzvF6GlKJPiSEH5R8Uvt9vYsArIFlyOy1+kSrcUlP+ZwdaLdVkCX85
+         o6r3OStZcqU33iCJbSUGGmqSKEy+TNxr++tItfYaEPCuO+FbFzOis6Y8/bTU6kezxlIq
+         JCHLC5YKBNptnqoF9YAJC8+I/eLqWPlm15ASJ3iTeMCTkRwM1aZ82eoPS0rf7hanUc72
+         SCMNp6AYg38gCrWfOqBZMSmS0ZM7R0waozfNCsrVI1YRxWJnn7WOn3YEHvffjB1Znspe
+         lG1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=k5UvKdJdRJaur7YUm6w4kyDYy3iKKR0fU3bviNdh0K8=;
+        b=s2DyqyatIgMtWuYNrMm+kZJ7CJmS1xsqbsyGIT7W+ZL6IPKnbb4SC7U8EkCnucGZ+U
+         0WXUcLEbYdvcZbJdZKBTOhHB3RW1GS+XNV2wO22y8j27p1mcPJjT9mNWbaxlUJNQefWB
+         +B4mslQVv3LICV/DoZ00RrZ/+uVXS4cGqEzW9boBQLmxDbT58jm1Yma97pe+fX/Dotr0
+         abw4jNRi6flHumPJuUuprIh/fjQuTNLhMIM9AQfkqepNCF7LaW7Wcpi1VNUzb1kjTuhy
+         ExeLZOm2Pm9cXEPIoGCMm4VjTTtp1reaAVqnNSPbLGu6B+giqwsyVpxnK1oBEbFn5Jqr
+         ZnWQ==
+X-Gm-Message-State: APjAAAXbQxneVrJjKu1QrdoI2huNazdaUw+vnXRH2hD89Mrq2Q3z3Nwx
+	4hhvpuQvSS9mgCau6n05/pDO5cEx/BTfbsxV7JMMigo3
+X-Google-Smtp-Source: APXvYqzV+hRQbKbu9Z8YWfAaE5cCfx74FpcNUmjfKFqwS0oTyiQ/zU0DyHoWklLvrd+3TOfqkEMsKoslvdIn2q6p7JI=
+X-Received: by 2002:aca:b608:: with SMTP id g8mr3716829oif.142.1579625001356;
+ Tue, 21 Jan 2020 08:43:21 -0800 (PST)
+MIME-Version: 1.0
+From: Maryam Choudhary <maryamnawaz983@gmail.com>
+Date: Tue, 21 Jan 2020 21:43:13 +0500
+Message-ID: <CAOF+YEjDe29Y6pRgVRXehnd9XN2C3F1zCh86RVN2Wuw0TVcoGg@mail.gmail.com>
+Subject: Fresh Graduate 2020 | Maryam Nawaz| Software Engineer
+To: jobs@triconbox.com
+Content-Type: multipart/mixed; boundary="000000000000160285059ca91bff"
+X-EN-Class: impinc
+

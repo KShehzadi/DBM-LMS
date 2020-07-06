@@ -1,0 +1,176 @@
+<form #form="ngForm" (submit)="onSubmit(form)">
+
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+
+        <mat-card class="card-login">
+            <mat-card-title>Sign Up</mat-card-title>
+            <br>
+            <mat-card-content>
+
+                <!-- <div class="form-group">
+                <input type="hidden" name="Id" value="service.formData.Id">
+            </div> -->
+
+                <div class="form-group">
+                    <input type="hidden" name="Designation" value="service.formData.Designation">
+                </div>
+
+                <div class="form-group">
+                    <input type="hidden" name="InstituteName" value="service.formData.InstituteName">
+                </div>
+
+                <!-- <div class="form-group">
+                <input type="hidden" name="LoginStatus" value="service.formData.LoginStatus">
+            </div> -->
+
+                <!-- <div class="form-group">
+                <input type="hidden" name="ActiveStatue" value="service.formData.ActiveStatue">
+            </div> -->
+
+                <!-- <div class="form-group">
+                <input type="hidden" name="InstituteId" value="service.formData.InstituteId">
+            </div> -->
+
+
+
+                <div class="form-group">
+
+                    <mat-form-field color="accent" appearance="outline" class="form-input">
+                        <mat-label>First Name</mat-label>
+                        <input matInput name="FirstName" #FirstName="ngModel" [ngModel]="service.formData.FirstName"
+                            class="form-control" ngModel pattern="[a-zA-Z ]*" required>
+                        <mat-error *ngIf="FirstName.errors?.required">
+                            <mat-icon>error</mat-icon> You must enter a first name
+                        </mat-error>
+                        <mat-error *ngIf="FirstName.errors?.pattern">
+                            <mat-icon>error</mat-icon> First name should not have numbers
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field color="accent" appearance="outline" class="form-input">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput name="LastName" #LastName="ngModel" [ngModel]="service.formData.LastName"
+                            class="form-control" pattern="[a-zA-Z ]*" required>
+                        <mat-error *ngIf="LastName.errors?.required">
+                            <mat-icon>error</mat-icon> You must enter a last name
+                        </mat-error>
+                        <mat-error *ngIf="LastName.errors?.pattern">
+                            <mat-icon>error</mat-icon> Last name should not have numbers
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field color="accent" appearance="outline" class="form-input form-control">
+                        <mat-label>Select Designation</mat-label>
+                        <mat-select name="Designation" #Designation="ngModel" [ngModel]="service.formData.Designation"
+                            [(ngModel)]="selectedDes" class="form-control" (ngModelChange)="changeDes()" required>
+                            <mat-option *ngFor="let designation of designations" [value]="designation.value">
+                                {{designation.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="LastName.errors?.required">
+                            <mat-icon>error</mat-icon> You must enter select a designation
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field color="accent" appearance="outline" class="form-input form-control">
+                        <mat-label>Select Institute</mat-label>
+                        <mat-select name="InstituteName" #InstituteName="ngModel" id="orders"
+                            [ngModel]="service.formData.InstituteName" class="form-control" required>
+                            <mat-option *ngFor="let institute of myInstitute;" [value]="institute.name">
+                                {{institute.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="LastName.errors?.required">
+                            <mat-icon>error</mat-icon> You must enter select an Institute
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-group">
+
+                    <mat-form-field color="accent" appearance="outline" class="form-input">
+                        <mat-label>Registration #</mat-label>
+                        <input matInput name="RegistrationNumber" #RegistrationNumber="ngModel"
+                            [ngModel]="service.formData.RegistrationNumber" [disabled]="isEnabled" class="form-control"
+                            ngModel required>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field color="accent" appearance="outline" class="form-input">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput name="Email" #Email="ngModel" [ngModel]="service.formData.Email"
+                            class="form-control" required>
+                        <mat-error *ngIf="Email.errors?.required">
+                            <mat-icon>error</mat-icon> You must enter email
+                        </mat-error>
+                        <mat-error *ngIf="Email.errors?.email">
+                            <mat-icon>error</mat-icon> Invalid email (abc@example.com)
+                        </mat-error>
+                        <mat-error *ngIf="!Email.errors?.uniqueEmailValidator && submitted">
+                            <mat-icon>error</mat-icon> Unique email error.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field color="accent" appearance="outline" class="form-input">
+                        <mat-label>CNIC</mat-label>
+                        <input matInput name="Cnic" #Cnic="ngModel" [ngModel]="service.formData.Cnic"
+                            class="form-control" pattern="[0-9]*" minlength="13" maxlength="13" required>
+                        <mat-error *ngIf="Cnic.errors?.minlength || Cnic.errors?.maxlength">
+                            <mat-icon>error</mat-icon> Cnic must be a 13 digit number
+                        </mat-error>
+                        <mat-error *ngIf="Cnic.errors?.pattern">
+                            <mat-icon>error</mat-icon> Cnic must be a 13 digit number
+                        </mat-error>
+                        <mat-error *ngIf="Cnic.errors?.required">
+                            <mat-icon>error</mat-icon> You must enter CNIC
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field color="accent" appearance="outline" class="form-input">
+                        <mat-label>Date Of Birth</mat-label>
+                        <input matInput placeholder="Date Of Birth" [matDatepicker]="simpleDate" name="DateOfBirth"
+                            #DateOfBirth="ngModel" [ngModel]="service.formData.DateOfBirth" class="form-control"
+                            required>
+                        <mat-datepicker-toggle matSuffix [for]="simpleDate"></mat-datepicker-toggle>
+                        <mat-datepicker #simpleDate></mat-datepicker>
+                        <mat-error *ngIf="DateOfBirth.invalid">
+                            <mat-icon>error</mat-icon> {{getErrorMessageDOB()}}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field color="accent" appearance="outline" class="form-input">
+                        <mat-label>Password</mat-label>
+                        <!-- <input matInput type="password"> -->
+                        <input id="mysecretpassword" type="password" placeholder="Password" name="Password"
+                            #Password="ngModel" [ngModel]="service.formData.Password" class="form-control" required
+                            matInput showHideInput>
+                        <i matSuffix class="material-icons" showHideTrigger="mysecretpassword"
+                            [showHideStatus]="{ materialIcon: true, id: 'mysecretpassword' }"></i>
+                        <mat-error *ngIf="Password.invalid">
+                            <mat-icon>error</mat-icon> {{getErrorMessagePassword()}}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <br>
+                <button type="submit" mat-raised-button class="btn-login" color="primary"
+                    [disabled]="form.form.invalid">Sign Up</button>
+                <br>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</form>

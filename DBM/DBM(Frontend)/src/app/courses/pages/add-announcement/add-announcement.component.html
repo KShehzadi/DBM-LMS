@@ -1,0 +1,52 @@
+<form #form="ngForm" autocomplete="off" (submit)=onSubmit(form)>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+    <mat-card class="card-add-announcement">
+        <mat-card-title>Announcement</mat-card-title>
+        <br>
+        <mat-card-content>
+            <div class="form-group">
+                <input type="hidden" name="id" value="service.formData.id">
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="CourseName" value="service.formData.CourseName">
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="email" value="service.formData.email">
+            </div>
+            <div class="form-group">
+                    <input type="hidden" name="postedDate" value="service.formData.postedDate">
+                </div>
+
+            <div class="form-group">
+                <mat-form-field color="accent" appearance="outline" class="form-input">
+                    <mat-label>Title</mat-label>
+                    <input matInput name="Title" #Title="ngModel" [ngModel]="service.formData.Title"
+                        class="form-control" required>
+                    <!-- <input matInput> -->
+                </mat-form-field>
+            </div>
+
+
+            <!-- <div class="form-group">
+                <mat-form-field color="accent" appearance="outline" class="form-input">
+                    <mat-label>Title</mat-label>
+                    <input matInput name="Title" #Title="ngModel" [ngModel]="service.Title" class="form-control">
+                </mat-form-field>
+            </div> -->
+
+            <br>
+            <h3 style="text-align: left; margin-left: 5%;">Description</h3>
+            <div class="form-group">
+            <div class="rich-text">
+                <ckeditor [editor]="Editor" matInput name="description" #description="ngModel" [ngModel]="service.formData.description"
+                class="form-control" required></ckeditor>
+            </div>
+        </div>
+            <br>
+            <br>
+            <button mat-raised-button class="add" color="primary">Add</button>
+            <br>
+        </mat-card-content>
+    </mat-card>
+    </div>
+</form>

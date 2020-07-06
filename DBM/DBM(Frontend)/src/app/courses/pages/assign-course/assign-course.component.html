@@ -1,0 +1,59 @@
+<form #form="ngForm" (submit)="onSubmit(form)">
+
+
+
+    <mat-card class="card-login">
+        <mat-card-title>Assign Course</mat-card-title>
+        <br>
+        <mat-card-content>
+
+            <!-- <div class="form-group">
+                <input type="hidden" name="Id" value="service.formData.Id">
+            </div> -->
+
+            
+
+            <div class="form-group">
+                <mat-form-field color="accent" appearance="outline" class="form-input form-control">
+                    <mat-label>Courses</mat-label>
+                    <!-- <input matInput> -->
+                    <mat-select name="name" #name="ngModel"
+                        [(ngModel)]="service.formData.name" class="form-control" required>
+                        <mat-option *ngFor="let course of service.list" [value]="course.name">
+                            {{course.name}}
+                        </mat-option>
+                    </mat-select>
+                    
+                </mat-form-field>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <mat-form-field color="accent" appearance="outline" class="form-input form-control">
+                    <mat-label>Teachers</mat-label>
+                    <!-- <input matInput> -->
+                    <mat-select name="email" #email="ngModel"
+                        [(ngModel)]="service.formData.email" class="form-control" required>
+                        <mat-option *ngFor="let course of service.teachersLst;" [value]="course.email">
+                            {{course.email}}
+                        </mat-option>
+                    </mat-select>
+                    
+                </mat-form-field>
+            </div>
+
+
+
+
+     
+
+
+            <br>
+            <br>
+            <button type="submit" mat-raised-button class="btn-login" color="primary"
+                [disabled]="form.form.invalid">Save</button>
+            <br>
+        </mat-card-content>
+    </mat-card>
+
+</form>

@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1 style="margin-left:70px">All Teachers</h1>
+<a routerLink='/AddTeacher'><button mat-raised-button class="btn-add" color="primary">Add
+    Teacher</button></a>
+<br>
+<br>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="margin-left:70px">
+
+
+  <ng-container matColumnDef="FirstName">
+    <th mat-header-cell *matHeaderCellDef class="head">First Name</th>
+    <td mat-cell *matCellDef="let element">{{element.FirstName}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="LastName">
+    <th mat-header-cell *matHeaderCellDef class="head">Last Name</th>
+    <td mat-cell *matCellDef="let element">{{element.LastName}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="ContactNo">
+    <th mat-header-cell *matHeaderCellDef class="head">Contact No.</th>
+    <td mat-cell *matCellDef="let element">
+      {{element.ContactNo}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Email">
+    <th mat-header-cell *matHeaderCellDef class="head">Email</th>
+    <td mat-cell *matCellDef="let element">
+      {{element.Email}}
+    </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="DateOfBirth">
+    <th mat-header-cell *matHeaderCellDef class="head">Date Of Birth</th>
+    <td mat-cell *matCellDef="let element">
+
+      {{element.DateOfBirth}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="CNIC">
+    <th mat-header-cell *matHeaderCellDef class="head">CNIC</th>
+    <td mat-cell *matCellDef="let element">
+      {{element.CNIC}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="UniversityName">
+    <th mat-header-cell *matHeaderCellDef class="head">UniversityName</th>
+    <td mat-cell *matCellDef="let element">
+      {{element.UniversityName}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="Edit">
+    <th mat-header-cell *matHeaderCellDef class="head"></th>
+    <td mat-cell *matCellDef="let element">
+      <a routerLink='/Teacher/Edit'>
+        <mat-icon class="icon">edit</mat-icon>
+      </a>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="Delete">
+    <th mat-header-cell *matHeaderCellDef class="head"></th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon class="icon">delete</mat-icon>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

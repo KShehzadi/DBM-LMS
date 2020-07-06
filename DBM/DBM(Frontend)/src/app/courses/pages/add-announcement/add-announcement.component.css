@@ -1,0 +1,33 @@
+.form-input{
+    width: 90%;
+
+}
+
+.card-add-announcement{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.rich-text{
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+:host ::ng-deep .ck-editor__editable_inline {
+    min-height: 300px;
+}
+
+.add{
+    background-color: #007a5a;
+    color: white;
+    width: 20%;
+    height: 45px;
+    margin-left: 70%;
+}
+
+.material-icons:hover{
+    cursor: pointer;
+}

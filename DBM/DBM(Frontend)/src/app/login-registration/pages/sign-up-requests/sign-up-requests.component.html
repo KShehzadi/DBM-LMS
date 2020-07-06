@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1 style="margin-left:70px">Login
+ Requests</h1>
+
+<br>
+<h3 style="text-align: center;">Teachers Requests</h3>
+<mat-card class="card-login">
+
+    <mat-card-content>
+        <table id="Institutes" class="table">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Approve</th>
+                <th>DisApprove</th>
+            </tr>
+            <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+            <tr *ngFor="let e of service.list1">
+                <input type="hidden" name="Id" value="{{e.Id}}">
+                <td>{{e.name}}</td>
+                <td>{{e.email}}</td>
+                <td>
+                    <a class="download" (click)=" ApproveTeacherRequest(e.id)"><mat-icon class="icon">done</mat-icon></a>
+                    <!-- <a routerLink='/AddInstitutes'><mat-icon class="icon">done</mat-icon></a> -->
+
+                </td>
+                <td>
+                    <a (click)=" DisApproveTeacherRequest(e.id)">
+                        <mat-icon class="icon">clear</mat-icon>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </mat-card-content>
+</mat-card>
+
+<br>
+<br>
+<h3 style="text-align: center;">Students Requests</h3>
+<mat-card class="card-login">
+    <mat-card-content>
+        <table id="Institutes" class="table">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <tr>
+                <!-- <th>Id</th> -->
+                <th>Name</th>
+                <th>Email</th>
+                <th>Approve</th>
+                <th>DisApprove</th>
+            </tr>
+            <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+            <tr *ngFor="let ed of service1.list">
+                <input type="hidden" name="Id" value="{{ed.Id}}">
+                <!-- <td>{{ed.id}}</td> -->
+                <td>{{ed.name}}</td>
+                <td>{{ed.email}}</td>
+                <td>
+                    <a (click)="ApproveStudentsRequest(ed.id)">
+                        <mat-icon class="icon">done</mat-icon>
+                    </a>
+                    <!-- <a routerLink='/AddInstitutes'><mat-icon class="icon">done</mat-icon></a> -->
+
+                </td>
+                <td>
+                    <a (click)="DisApproveStudentRequest(ed.id)">
+                        <mat-icon class="icon">clear</mat-icon>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </mat-card-content>
+</mat-card>

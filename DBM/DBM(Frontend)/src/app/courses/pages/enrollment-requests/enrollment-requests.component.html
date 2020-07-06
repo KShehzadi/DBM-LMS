@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1 style="margin-left:70px">Software Engineering Enrollment Requests</h1>
+
+<br>
+
+<mat-card class="card-login">
+
+    <mat-card-content>
+        <table id="Institutes" class="table">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Approve</th>
+                <th>DisApprove</th>
+            </tr>
+            <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+            <tr *ngFor="let e of service.EnrollmentList">
+                <input type="hidden" name="Id" value="{{e.userId}}">
+               
+                <td>{{e.userName}}</td>
+                <td>{{e.email}}</td>
+                <td>
+                        <!-- <a type="submit" mat-raised-button style="margin-left:50px"
+                        (click)="EnrolInCourse(course, form)">Not Enrolled</a> -->
+                    <a (click)="ApproveRequest(e.userId)"><mat-icon class="icon">done</mat-icon></a>
+
+                </td>
+                <td>
+                    <a (click)="DisApproveRequest(e.userId)"><mat-icon class="icon">clear</mat-icon></a>
+                </td>
+            </tr>
+        </table>
+    </mat-card-content>
+</mat-card>
+
+<table class="mat-elevation-z8" style="margin-left:70px">
+
+    <!-- <ng-container *ngFor="let col of service.list">
+        <th mat-header-cell *matHeaderCellDef> InstituteName </th>
+        <td mat-cell *matCellDef="let element">  </td>
+    </ng-container> -->
+
+    <!-- <ng-container matColumnDef="instituteName">
+        <th mat-header-cell *matHeaderCellDef>Institute</th>
+        <td mat-cell *matCellDef="let element">{{element}} </td>
+    </ng-container> -->
+
+
+
+
+    <!-- 
+    <ng-container matColumnDef="Edit">
+        <th mat-header-cell *matHeaderCellDef class="head"></th>
+        <td mat-cell *matCellDef="let element">
+            <a routerLink='/Institute/Edit'>
+                <mat-icon class="icon">edit</mat-icon>
+            </a>
+        </td>
+    </ng-container> -->
+
+    <!-- <ng-container matColumnDef="Delete">
+        <th mat-header-cell *matHeaderCellDef class="head"></th>
+        <td mat-cell *matCellDef="let element">
+            <mat-icon class="icon">delete</mat-icon>
+        </td>
+    </ng-container> -->
+
+
+    <!-- 
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+</table>

@@ -1,0 +1,82 @@
+.myClass{
+    font-size: 18px;
+    text-align: center;
+    
+}
+.myClass:hover{
+    color:purple !important;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  padding: 10px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  
+  display:none;
+}
+
+.container:hover img{
+    filter: blur(2px); 
+}
+.container:hover .btn{
+   
+     display:block;
+ }
+
+ .btn-login{
+    background-color: #007a5a;
+    color: white;
+    width: 90%;
+    height: 45px;
+}
+
+.btn-enrol {
+    background-color: #007a5a;
+    color: white;
+    width: 30%;
+    height: 40px;
+    align-self: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.pad {
+    padding: 0ex, 20ex, 20ex, 20ex;
+}
+
+.btn-add {
+    background-color: #007a5a;
+    color: white;
+    margin-left: 70px;
+    height: 45px;
+    width:180px;
+  }
+
+  .btn-add1 {
+    background-color: #007a5a;
+    color: white;
+    /* margin-left: 70px; */
+    height: 45px;
+    width:180px;
+  }
+
+  /* a {
+    text-decoration: underline;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    background-color: purple;
+    color: white;
+  } */
+ 

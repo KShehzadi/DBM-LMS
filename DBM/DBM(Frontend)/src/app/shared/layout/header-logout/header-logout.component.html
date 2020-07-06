@@ -1,0 +1,55 @@
+<!--       
+      <mat-toolbar color="primary">
+        <span>My Application</span>
+        <span class="example-fill-remaining-space"></span>
+        <span>
+            <a href=#>Register</a>
+            &nbsp; &nbsp; 
+        </span>
+        <span>
+          <a href=#>Login</a>
+          &nbsp; &nbsp; 
+        </span>
+        <span>
+          <a [matMenuTriggerFor]="menu" class="menu">Links</a>
+          
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item class="my">Item 1</button>
+            <button mat-menu-item class="my">Item 2</button>
+          </mat-menu>
+          &nbsp; &nbsp; 
+          </span>
+      
+      
+      
+        
+      </mat-toolbar> -->
+
+
+
+
+<div>
+    <mat-toolbar color="primary" class="toolbar">
+        <mat-toolbar-row>
+            <button mat-icon-button>
+                <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+            </button>
+            <img width="140px" height="80px" style="padding-top: 10px" src="./assets/images/DBMLogoBlack.png">
+            <h1>Digital Board Marker</h1>
+            <span class="menu-spacer"></span>
+            <div>
+                <!-- <a mat-button [routerLink]="'/AllInstitutes'"> Institutes </a>
+                    <a mat-button [routerLink]="'/AllTeacher'"> Teachers </a>
+                    <a mat-button [routerLink]="'/permission/permissionManagement'"> Permission </a>
+                    <a mat-button [routerLink]="'/course/AllCourses'"> Courses </a>
+                    <a mat-button [routerLink]="'/signup'"> Register </a>
+                    <a mat-button [routerLink]="'/login'"> Login </a> -->
+                <!-- <a mat-button [routerLink]="'/create-activity'"> Create Activity </a> -->
+
+
+            </div>
+            <!-- &nbsp; &nbsp; &nbsp; -->
+            <div><a mat-button (click)="onLogout()"> Logout </a></div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</div>

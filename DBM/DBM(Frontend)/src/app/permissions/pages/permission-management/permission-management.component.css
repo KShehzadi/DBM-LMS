@@ -1,0 +1,131 @@
+/* table {
+ 
+  width: 800px;
+    margin-left: 100px;
+    
+  }
+   */
+  
+
+   /* table {
+    
+  }
+
+  td, th {
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+    width: 80px;
+  } */
+
+  #Institutes {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #Institutes td, #Institutes th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #Institutes tr:nth-child(even){background-color: #f2f2f2;}
+
+  #Institutes tr:hover {background-color: #ddd;}
+
+  #Institutes th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #007a5a;
+    color: white;
+    /*  #4CAF50 */
+  }
+
+  
+  a {
+    color: black;
+  }
+ 
+  .card-login{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    min-width: 400px;
+  }
+
+
+ .btn-add {
+  background-color: #007a5a;
+  color: white;
+  margin-left: 70px;
+  height: 45px;
+  width:180px;
+}
+
+ .head{
+   font-size:15px;
+   font-weight: bold;
+ }
+
+ .mat-column-Position{
+  flex:0 0 25% !important;
+  width: 200px !important;
+}
+
+.mat-column-InstituteName{
+  flex:0 0 25% !important;
+  width: 200px !important;
+}
+
+.mat-column-Admin{
+  flex:0 0 25% !important;
+  width: 200px !important;
+}
+
+.mat-column-AddedOn{
+  flex:0 0 25% !important;
+  width: 200px !important;
+}
+
+.mat-column-Edit{
+  flex:0 0 25% !important;
+  width: 200px !important;
+}
+
+.icon:hover{
+  cursor: pointer;
+  color: #007a5a;
+}
+  i.fas {
+    display: inline-block;
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px #888;
+    background-color: #bbb;
+    padding: 0.3em 0.3em;
+  
+  }
+
+  ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+    background-color:#007a5a !important;
+  }
+  /* .mat-checkbox:checked {
+    border-color: black;
+    color: red;
+    background-color: red;
+    
+ 
+} */
+/* 
+ .mat-column-icons{
+   flex:0 0 25% !important;
+   width:90px !important;
+ }
+ .btn-add {
+  background-color: #007a5a;
+  color: white;
+  margin-left: 70px;
+  height: 45px;
+  width:180px;
+} */
+ 

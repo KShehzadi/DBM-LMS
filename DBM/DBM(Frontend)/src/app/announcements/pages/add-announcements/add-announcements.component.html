@@ -1,0 +1,21 @@
+<mat-card class="card-add-announcement">
+    <mat-card-title>Announcement</mat-card-title>
+    <br>
+    <mat-card-content>
+        <mat-form-field color="accent" appearance="outline" class="form-input">
+            <mat-label>Title</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <br>
+        <h3 style="text-align: left; margin-left: 5%;">Announcement</h3>
+        <div class="rich-text">
+
+            <ckeditor [editor]="Editor"></ckeditor>
+        </div>
+
+        <br>
+        <br>
+        <button mat-raised-button class="add" color="primary">Add</button>
+        <br>
+    </mat-card-content>
+</mat-card>

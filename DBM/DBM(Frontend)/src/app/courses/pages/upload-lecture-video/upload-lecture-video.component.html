@@ -1,0 +1,55 @@
+<form #form="ngForm" autocomplete="off" (submit)=onSubmit(form)>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+    <mat-card class="card-login">
+        <mat-card-title>Add Video Lecture</mat-card-title>
+        <br>
+        <mat-card-content>
+
+            <div>
+                <input type="hidden" name="courseId" value="service.formDataVideo.courseId">
+            </div>
+
+            <div>
+                <input type="hidden" name="Id" value="service.formDataVideo.Id">
+            </div>
+
+
+            <mat-form-field color="accent" appearance="outline" class="form-input">
+                <mat-label>Name</mat-label>
+                <input matInput name="Name" #Name="ngModel" [ngModel]="service.formDataVideo.Name" class="form-control"
+                    required>
+            </mat-form-field>
+            <br>
+
+          
+
+           
+
+
+            <!-- 
+            <br>
+
+            <mat-form-field color="accent" appearance="outline" class="form-input">
+                <mat-label>Path</mat-label>
+                <input matInput name="FilePath" #FilePath="ngModel" [ngModel]="service.formData.FilePath"
+                    class="form-control" required>
+            </mat-form-field> -->
+
+            <br>
+
+            <!-- <form [formGroup]="form" novalidate> -->
+            <mat-form-field appearance="outline" class="form-input" color="accent">
+                <mat-label>Video File</mat-label>
+                <ngx-mat-file-input name="file" #FilePath="ngModel" [ngModel]="service.formDataVideo.FilePath"
+                    class="form-control" (change)="onFileSelected($event)" required></ngx-mat-file-input>
+                <mat-icon matSuffix>folder</mat-icon>
+            </mat-form-field>
+            <!-- </form> -->
+            <br>
+            <br>
+            <button mat-raised-button class="btn-login" color="primary">Add</button>
+            <br>
+        </mat-card-content>
+    </mat-card>
+    </div>
+</form>

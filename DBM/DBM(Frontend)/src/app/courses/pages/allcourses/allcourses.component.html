@@ -1,0 +1,83 @@
+<app-header></app-header>
+<br>
+<br>
+<br>
+<br>
+
+<h2 style="text-align:center; margin-top: -35px;">All Courses</h2>
+
+<div *ngIf="Service2.checkAdmin()">
+    <a routerLink='/AddCourse'><button mat-raised-button class="btn-add" color="primary">Add
+            Course</button></a>
+</div>
+
+<br>
+<br>
+<br>
+
+<form #form="ngForm" (submit)="onSubmit(form)">
+
+
+    <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" gutterSize="20px">
+        <div *ngFor="let course of service.list">
+            <div class="form-group">
+                <input type="hidden" name="id" value="{{course.id}}">
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="email" value="{{course.email}}">
+            </div>
+
+            <div class="form-group">
+                <input type="hidden" name="name" value="{{course.name}}">
+            </div>
+
+            <div class="form-group">
+                <input type="hidden" name="courseCode" value="{{course.courseCode}}">
+            </div>
+
+            <div class="form-group">
+                <input type="hidden" name="courseSession" value="{{course.courseSession}}">
+            </div>
+
+            <div class="form-group">
+                <input type="hidden" name="courseSemester" value="{{course.courseSemester}}">
+            </div>
+
+            <div class="form-group">
+                <input type="hidden" name="userId" value="{{course.courseSemester}}">
+            </div>
+            <mat-grid-tile>
+                <mat-card style="width:70%; ">
+                    <div class="container" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+                        <img mat-card-image
+                            src="https://www.verywellmind.com/thmb/jbJ5PlWXRyO6NW_TbKuYqELvpFI=/3866x2580/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-470803747-56a8d18d5f9b58b7d0f56bd0.jpg">
+                        <button mat-raised-button color="accent" class="btn"
+                            (click)="ViewCourse(course, form)">View</button>
+
+                        <mat-card-content>
+                            <!-- <p class="myClass"><b>{{course.id}}</b></p> -->
+                            <p class="myClass"><b>{{course.name}}</b></p>
+                            <p class="myClass"><b>{{course.courseCode}}</b></p>
+                            <hr>
+                            <!-- <i class="fas fa-comment">155 &nbsp;&nbsp;&nbsp;</i>
+                        <i class="fas fa-thumbs-up">200</i> -->
+                            <div class="pad"></div>
+                            <div *ngIf="Service2.checkStudent()">
+                                <button mat-raised-button class="btn-add1" color="primary" type="submit"
+                                    style="margin-left:25px" (click)="EnrolInCourse(course, form)">Enroll</button>
+                            </div>
+                            <div *ngIf="Service2.checkAdmin()">
+                                <button mat-raised-button class="btn-enrol" color="primary" style="margin-left:05px"
+                                    (click)="editCourse(course)">Edit</button>
+                                <button mat-raised-button class="btn-enrol" color="primary" (click)="editCourse(course)"
+                                    style="margin-left:80px">Delete</button>
+                            </div>
+                            <hr>
+                        </mat-card-content>
+                    </div>
+                </mat-card>
+
+            </mat-grid-tile>
+        </div>
+    </mat-grid-list>
+</form>

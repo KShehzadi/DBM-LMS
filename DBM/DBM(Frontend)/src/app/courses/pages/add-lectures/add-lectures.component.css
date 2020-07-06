@@ -1,0 +1,28 @@
+.form-input{
+    width: 90%;
+
+}
+
+.card-login{
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  min-width: 400px;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+.btn-login{
+    
+    background-color: #007a5a;
+    color: white;
+    width: 90%;
+    height: 45px;
+}

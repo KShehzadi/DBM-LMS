@@ -1,0 +1,71 @@
+<form #form="ngForm" autocomplete="off" (submit)=onSubmit(form)>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+    <mat-card class="card-login">
+        <mat-card-title>Add Assignment</mat-card-title>
+        <br>
+        <mat-card-content>
+
+            <div>
+                <input type="hidden" name="Email" value="service.formData.Email">
+            </div>
+
+            <div>
+                <input type="hidden" name="Id" value="service.formData.Id">
+            </div>
+
+
+            <mat-form-field color="accent" appearance="outline" class="form-input">
+                <mat-label>Title</mat-label>
+                <input matInput name="Title" #Title="ngModel" [ngModel]="service.formData.Title" class="form-control"
+                    required>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field appearance="outline" class="form-input" color="accent">
+                <mat-label>Submission Date and Time</mat-label>
+                <input matInput [owlDateTime]="dt1" placeholder="mm-dd-yyyy, 12:00 AM" name="SubmissionDate"
+                    #SubmissionDate="ngModel" [ngModel]="service.formData.SubmissionDate" class="form-control" required>
+                <mat-datepicker-toggle matSuffix [owlDateTimeTrigger]="dt1"></mat-datepicker-toggle>
+                <mat-datepicker></mat-datepicker>
+                <!-- <div [owlDateTimeTrigger]="dt2"><i class="fa fa-calendar"></i></div> -->
+                <owl-date-time #dt1></owl-date-time>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-input" color="accent">
+                <mat-label>Start Date and Time</mat-label>
+                <input matInput [owlDateTime]="dt2" placeholder="mm-dd-yyyy, 12:00 AM" name="StartDateTime"
+                    #StartDateTime="ngModel" [ngModel]="service.formData.StartDateTime" class="form-control" required>
+                <mat-datepicker-toggle matSuffix [owlDateTimeTrigger]="dt2"></mat-datepicker-toggle>
+                <mat-datepicker></mat-datepicker>
+                <!-- <div [owlDateTimeTrigger]="dt2"><i class="fa fa-calendar"></i></div> -->
+                <owl-date-time #dt2></owl-date-time>
+            </mat-form-field>
+
+
+            <!-- 
+            <br>
+
+            <mat-form-field color="accent" appearance="outline" class="form-input">
+                <mat-label>Path</mat-label>
+                <input matInput name="FilePath" #FilePath="ngModel" [ngModel]="service.formData.FilePath"
+                    class="form-control" required>
+            </mat-form-field> -->
+
+            <br>
+
+            <!-- <form [formGroup]="form" novalidate> -->
+            <mat-form-field appearance="outline" class="form-input" color="accent">
+                <mat-label>Assignment File</mat-label>
+                <ngx-mat-file-input name="file" #FilePath="ngModel" [ngModel]="service.formData.FilePath"
+                    class="form-control" (change)="onFileSelected($event)" required></ngx-mat-file-input>
+                <mat-icon matSuffix>folder</mat-icon>
+            </mat-form-field>
+            <!-- </form> -->
+            <br>
+            <br>
+            <button mat-raised-button class="btn-login" color="primary">Add</button>
+            <br>
+        </mat-card-content>
+    </mat-card>
+    </div>
+</form>

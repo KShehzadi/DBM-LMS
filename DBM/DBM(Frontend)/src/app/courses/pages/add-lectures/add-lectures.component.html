@@ -1,0 +1,37 @@
+
+<form #form="ngForm" (submit)="onSubmit(form)">
+    
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+    <mat-card class="card-login">
+        <mat-card-title>Add Lecture</mat-card-title>
+        <br>
+        <mat-card-content>
+
+            <div class="form-group">
+                <input type="hidden" name="id" [value]="service.formData.id">
+            </div>
+
+
+            <div class="form-group">
+
+                <mat-form-field color="accent" appearance="outline" class="form-input">
+                    <mat-label>Lecture Name</mat-label>
+                    <input matInput name="name" #name="ngModel"
+                        [(ngModel)]="service.formData.name" class="form-control" required>
+
+
+                </mat-form-field>
+            </div>
+
+
+
+
+            <br>
+            <button type="submit" mat-raised-button class="btn-login" color="primary"
+               >Add</button>
+            <br>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+</form>

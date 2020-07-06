@@ -1,0 +1,9 @@
+diff a/src/app/app.module.ts b/src/app/app.module.ts	(rejected hunks)
+@@ -17,6 +17,7 @@
+ import { PermissionsModule } from './permissions/permissions.module';
+ import { NotesModule } from './notes/notes.module';
+ import { AssignmentsModule } from './assignments/assignments.module';
++import { InstituteModule } from './institute/institute.module';
+ 
+ 
+ 

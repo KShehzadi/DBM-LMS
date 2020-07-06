@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<br>
+
+<mat-card class="card-login">
+
+    <mat-card-content>
+        <table id="Institutes">
+            <col width="50px">
+            <col width="100px">
+            <col width="100px">
+            <col width="50px">
+            <col width="50px">
+            <col width="70px">
+            <col width="70px">
+            <tr>
+                <th>Title</th>
+                <th>Submission Date and Time</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>Download</th>
+                <th>Submit</th>
+            </tr>
+            <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+            <tr *ngFor="let a of service.list">
+            
+                <!-- <td>{{pd.instituteName}}</td> -->
+                <td>{{a.title}}</td>
+                <td>{{a.submissionDate}}</td>
+                <td>
+                    <!-- <a (click)="editInstitute(pd)"> -->
+                    <a>
+                        <mat-icon class="icon">edit</mat-icon>
+                    </a>
+                </td>
+                <td>
+                    <mat-icon class="icon">delete</mat-icon>
+                </td>
+                <td>
+                    <a class="download" (click)="Download(a)">Download</a>
+                </td>
+                <td>
+                    <a class="download" (click)="Submit(a)">Submit</a>
+                </td>
+            </tr>
+        </table>
+
+    </mat-card-content>
+
+</mat-card>
+<br>
+<br>
+
+<!-- <div *ngFor="let k of service.list">
+    {{k.instituteName}}
+</div> -->
+
+<!-- <mat-select>
+    <mat-option *ngFor="let designation of lst">
+        {{designation.InstituteName}}
+    </mat-option>
+</mat-select> -->
+
+
+
+<table class="mat-elevation-z8" style="margin-left:70px">
+
+    <!-- <ng-container *ngFor="let col of service.list">
+        <th mat-header-cell *matHeaderCellDef> InstituteName </th>
+        <td mat-cell *matCellDef="let element">  </td>
+    </ng-container> -->
+
+    <!-- <ng-container matColumnDef="instituteName">
+        <th mat-header-cell *matHeaderCellDef>Institute</th>
+        <td mat-cell *matCellDef="let element">{{element}} </td>
+    </ng-container> -->
+
+
+
+
+    <!-- 
+    <ng-container matColumnDef="Edit">
+        <th mat-header-cell *matHeaderCellDef class="head"></th>
+        <td mat-cell *matCellDef="let element">
+            <a routerLink='/Institute/Edit'>
+                <mat-icon class="icon">edit</mat-icon>
+            </a>
+        </td>
+    </ng-container> -->
+
+    <!-- <ng-container matColumnDef="Delete">
+        <th mat-header-cell *matHeaderCellDef class="head"></th>
+        <td mat-cell *matCellDef="let element">
+            <mat-icon class="icon">delete</mat-icon>
+        </td>
+    </ng-container> -->
+
+
+    <!-- 
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+</table>

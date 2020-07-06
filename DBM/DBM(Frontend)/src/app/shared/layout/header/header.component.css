@@ -1,0 +1,54 @@
+
+        .my:hover {
+            background-color: #2bbbad !important;
+            color: white;
+          }
+        
+          .example-fill-remaining-space {
+            /* This fills the remaining space, by using flexbox. 
+             Every toolbar row uses a flexbox row layout. */
+            flex: 1 1 auto;
+          }
+          a:link{
+            text-decoration: none;
+          }
+           a:hover{
+            
+            background-color: purple;
+            color: white;
+          } 
+          a{
+            color: white;
+          }
+          .menu{
+            font-size: 20px;
+          }
+
+          a{
+            color: black;
+          }
+
+          h1{
+            color: black
+          }
+
+          .toolbar{
+            border-bottom: 1px solid purple;
+            position: fixed;
+            top: 0;
+            z-index:1000;
+          }
+
+          .menu-spacer{
+            padding: 20px;
+          }
+
+          .right{
+            float: right;
+          }
+
+          .space {
+            flex: 2 1 auto;
+            padding: 200px;
+          }
+          

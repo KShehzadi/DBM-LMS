@@ -1,0 +1,31 @@
+<form #form="ngForm" autocomplete="off" (submit)=onSubmit(form)>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+    <mat-card class="card-login">
+        <mat-card-title>Sign In</mat-card-title>
+        <br>
+        <mat-card-content>
+            <div class="form-group">
+                <mat-form-field color="accent" appearance="outline" class="form-input">
+                    <mat-label>Email</mat-label>
+                    <input matInput name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control"
+                        required>
+                    <!-- <input matInput> -->
+                </mat-form-field>
+            </div>
+            <br>
+            <mat-form-field color="accent" appearance="outline" class="form-input">
+                <mat-label>Password</mat-label>
+
+                <input id="mysecretpassword" type="password" name="Password" #Password="ngModel"
+                    [(ngModel)]="service.formData.Password" class="form-control" matInput showHideInput required>
+                <i matSuffix class="material-icons" showHideTrigger="mysecretpassword"
+                    [showHideStatus]="{ materialIcon: true, id: 'mysecretpassword' }"></i>
+            </mat-form-field>
+            <br>
+            <br>
+            <button mat-raised-button class="btn-login" color="primary">Login</button>
+            <br>
+        </mat-card-content>
+    </mat-card>
+    </div>
+</form>

@@ -1,0 +1,41 @@
+<form #form="ngForm" (submit)="onSubmit(form)">
+
+    <mat-card class="card-login">
+      <mat-card-title>Add Group</mat-card-title>
+      <br>
+      <mat-card-content>
+        <div class="form-group">
+          <input type="hidden" name="id" value="service.formData.id">
+        </div>
+  
+        <div class="form-group">
+            <mat-form-field color="accent" appearance="outline" class="form-input">
+              <mat-label>Select Group</mat-label>
+              <mat-select name="group" #group="ngModel" 
+              [ngModel]="service.formData.group" class="form-control">
+              <mat-option  *ngFor="let groups of groupList;" [value]="groups.name" >{{groups.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            </div>
+        <br>
+        <br>
+        
+        <div class="form-group">
+        <mat-form-field color="accent" appearance="outline" class="form-input">
+          <mat-label>Select User</mat-label>
+          <mat-select name="Name"  class="form-control" (selectionChange)="changeClient($event.value)" multiple>
+          <mat-option  *ngFor="let user of userList;" [value]="user.id" >{{user.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+    
+        <br>
+        <br>
+        <button mat-raised-button  class="btn-login" color="primary">Add</button>
+        <br>
+      </mat-card-content>
+    </mat-card>
+
+  </form>
+
+  

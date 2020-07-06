@@ -1,0 +1,71 @@
+<mat-card class="card-login">
+    <mat-card-title>Edit Teacher</mat-card-title>
+    <br>
+    <mat-card-content>
+        <mat-form-field color="accent" appearance="outline" class="form-input">
+            <mat-label>First Name</mat-label>
+            <input matInput [formControl]="FirstName" value="ABC" required>
+            <mat-error *ngIf="FirstName.invalid">
+                <mat-icon>error</mat-icon> {{getErrorMessageFirstName()}}
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field color="accent" appearance="outline" class="form-input">
+            <mat-label>Last Name</mat-label>
+            <input matInput [formControl]="LastName" value="XYZ" required>
+            <mat-error *ngIf="LastName.invalid">
+                <mat-icon>error</mat-icon> {{getErrorMessageLastName()}}
+            </mat-error>
+        </mat-form-field>
+        <br>
+
+
+        <mat-form-field color="accent" appearance="outline" class="form-input">
+            <mat-label>Email</mat-label>
+            <input matInput value="abc@gmail.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">
+                <mat-icon>error</mat-icon> {{getErrorMessageEmail()}}
+            </mat-error>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field color="accent" appearance="outline" class="form-input">
+            <mat-label>CNIC</mat-label>
+            <input matInput [formControl]="CNIC" value="1111111111111" required>
+            <mat-error *ngIf="CNIC.invalid">
+                <mat-icon>error</mat-icon> {{getErrorMessageCNIC()}}
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field color="accent" appearance="outline" class="form-input">
+            <mat-label>Contact Number</mat-label>
+            <input matInput [formControl]="PhoneNo" value="123" required>
+            <mat-error *ngIf="PhoneNo.invalid">
+                <mat-icon>error</mat-icon> {{getErrorMessageCellNo()}}
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field color="accent" appearance="outline" class="form-input">
+            <mat-label>Date Of Birth</mat-label>
+            <input matInput value="10/7/2019" [matDatepicker]="simpleDate" [formControl]="DateOfBirth"
+                required>
+            <mat-datepicker-toggle matSuffix [for]="simpleDate"></mat-datepicker-toggle>
+            <mat-datepicker #simpleDate></mat-datepicker>
+            <mat-error *ngIf="DateOfBirth.invalid">
+                <mat-icon>error</mat-icon> {{getErrorMessageDOB()}}
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field color="accent" appearance="outline" class="form-input">
+            <mat-label>Select Univeristy</mat-label>
+            <mat-select [formControl]="permissions" multiple>
+                <mat-option *ngFor="let permissions of permissionList" [value]="permissions">{{permissions}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <br>
+        <button mat-raised-button class="btn-login" color="primary">Add</button>
+        <br>
+    </mat-card-content>
+</mat-card>

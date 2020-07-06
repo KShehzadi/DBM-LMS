@@ -1,0 +1,95 @@
+<!-- 
+<mat-card class="card-login">
+  <mat-card-title>Add Course</mat-card-title>
+  <br>
+  <mat-card-content>
+      <mat-form-field color="accent" appearance="outline" class="form-input">
+          <mat-label>Course Name</mat-label>
+          <input matInput>
+      </mat-form-field>
+      <br>
+      
+      <mat-form-field color="accent" appearance="outline" class="form-input">
+        <mat-label>Course Details</mat-label>
+        <input matInput>
+    </mat-form-field>
+      <br>
+      <form [formGroup] = "form" novalidate>
+        <mat-form-field appearance="outline" class="form-input" color="accent">
+            <mat-label>Course Image</mat-label>
+            <ngx-mat-file-input formControlName="file"></ngx-mat-file-input>
+            <mat-icon matSuffix>folder</mat-icon>
+      </mat-form-field>
+    </form>
+    <br>
+      <br>
+      <button mat-raised-button class="btn-login" color="primary">Add</button>
+      <br>
+  </mat-card-content>
+</mat-card> -->
+
+<form #form="ngForm" autocomplete="off" (submit)=onSubmit(form)>
+  <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+  <mat-card class="card-login">
+    <mat-card-title>Add Course</mat-card-title>
+    <br>
+    <mat-card-content>
+
+      <div class="form-group">
+        <input type="hidden" name="id" value="service.formData.id">
+      </div>
+
+      <div class="form-group">
+        <input type="hidden" name="Email" value="service.formData.email">
+      </div>
+
+      <div class="form-group">
+        <input type="hidden" name="userId" value="service.formData.userId">
+      </div>
+
+      <div class="form-group">
+        <mat-form-field color="accent" appearance="outline" class="form-input">
+          <mat-label>Name</mat-label>
+          <input matInput name="Name" #Name="ngModel" [ngModel]="service.formData.name" class="form-control" required>
+          <!-- <input matInput> -->
+        </mat-form-field>
+      </div>
+      <br>
+      <div class="form-group">
+        <mat-form-field color="accent" appearance="outline" class="form-input">
+          <mat-label>Course Code</mat-label>
+          <input matInput name="CourseCode" #CourseCode="ngModel" [ngModel]="service.formData.courseCode"
+            class="form-control" required>
+          <!-- <input matInput> -->
+        </mat-form-field>
+      </div>
+
+      <br>
+      <div class="form-group">
+        <mat-form-field color="accent" appearance="outline" class="form-input">
+          <mat-label>Course Session</mat-label>
+          <input matInput name="CourseSession" #CourseSession="ngModel" [ngModel]="service.formData.courseSession"
+            class="form-control" required>
+          <!-- <input matInput> -->
+        </mat-form-field>
+      </div>
+
+      <br>
+      <div class="form-group">
+        <mat-form-field color="accent" appearance="outline" class="form-input">
+          <mat-label>Course Semester</mat-label>
+          <input matInput name="CourseSemester" #CourseSemester="ngModel" [ngModel]="service.formData.courseSemester"
+            class="form-control" required>
+          <!-- <input matInput> -->
+        </mat-form-field>
+      </div>
+
+      <br>
+      <br>
+      <button mat-raised-button class="btn-login" color="primary">Add</button>
+      <br>
+    </mat-card-content>
+  </mat-card>
+  </div>
+  
+</form>

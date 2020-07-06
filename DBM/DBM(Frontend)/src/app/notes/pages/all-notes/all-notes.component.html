@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1 style="margin-left:70px">Lectures Notes</h1>
+<br>
+<a routerLink='/AddNotes'><button mat-raised-button class="btn-add" color="primary">Add Notes</button></a>
+<br>
+<br>
+<mat-card class="card-login">
+
+    <mat-card-content>
+        <table id="Institutes" class="table">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <tr>
+                <th>Name</th>
+                <th>Download</th>
+                <th>Delete</th>
+            </tr>
+            <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+            <tr *ngFor="let e of service.Noteslist">
+                <input type="hidden" name="courseId" value="{{e.courseId}}">
+                <input type="hidden" name="userId" value="{{e.userId}}">
+                <input type="hidden" name="lectureId" value="{{e.lectureId}}">
+                <input type="hidden" name="FilePath" value="{{e.filePath}}">
+               
+                <td>{{e.name}}</td>
+                <td>
+                    <a (click)="Download(e)"> <mat-icon class="icon">save_alt</mat-icon></a>
+                   
+                </td>
+                <td>
+                    <a (click)="DisApproveRequest(e.userId)"><mat-icon class="icon">delete_sweep</mat-icon></a>
+                </td>
+            </tr>
+        </table>
+    </mat-card-content>
+</mat-card>

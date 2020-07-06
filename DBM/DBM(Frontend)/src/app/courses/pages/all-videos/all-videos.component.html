@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1 style="margin-left:70px">Lectures Videos</h1>
+<a routerLink='/UploadVideo'><button mat-raised-button class="btn-add" color="primary">Upload Video</button></a>
+<br>
+<br>
+<mat-card class="card-login">
+
+    <mat-card-content>
+        <table id="Institutes" class="table">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <tr>
+                <th>Name</th>
+                <th>Play</th>
+                <th>Download</th>
+                <th>Delete</th>
+            </tr>
+            <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+            <tr *ngFor="let e of service.Videoslist">
+                <input type="hidden" name="courseId" value="{{e.courseId}}">
+                <input type="hidden" name="FilePath" value="{{e.filePath}}">
+               
+                <td>{{e.name}}</td>
+                <td>
+                        <!-- <a type="submit" mat-raised-button style="margin-left:50px"
+                        (click)="EnrolInCourse(course, form)">Not Enrolled</a> -->
+                    <a (click)="ApproveRequest(e)"><mat-icon class="icon">play_circle_filled</mat-icon></a>
+
+                </td>
+                <td>
+                    <a (click)="Download(e)"> <mat-icon class="icon">save_alt</mat-icon></a>
+                   
+                </td>
+                <td>
+                    <a (click)="DisApproveRequest(e.userId)"><mat-icon class="icon">delete_sweep</mat-icon></a>
+                </td>
+            </tr>
+        </table>
+    </mat-card-content>
+</mat-card>

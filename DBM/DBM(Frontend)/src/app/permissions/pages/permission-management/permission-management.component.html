@@ -1,0 +1,48 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1 style="margin-left:70px">Permission Management</h1>
+<a routerLink='/permission/AddGroup'><button mat-raised-button class="btn-add" color="primary">Add
+    Group</button></a>
+<br>
+<br>
+<mat-card class="card-login">
+
+  <mat-card-content>
+      <table id="Institutes">
+          
+          <tr>
+              <th>Icons</th>
+              <th>Groups</th>
+              <th>Users</th>
+              <th>Select User</th>
+              <th>Assign Permission</th>
+          </tr>
+          <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+          <tr >
+            <td>
+              <i class="fas fa-users" style="font-size:40px "></i>
+            </td>
+              <td>group</td>
+              <td> <mat-checkbox>All</mat-checkbox></td>
+              <td>
+                <mat-form-field color="accent" appearance="outline">
+                  <mat-label>Select User</mat-label>
+                  <mat-select>
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                      {{food.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field color="accent" appearance="outline">
+                  <mat-label>Assign Permissions</mat-label>
+                  <mat-select [formControl]="permissions" multiple>
+                    <mat-option *ngFor="let permissions of permissionList" [value]="permissions">{{permissions}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+          </tr>
+      </table>
+  </mat-card-content>
+</mat-card>

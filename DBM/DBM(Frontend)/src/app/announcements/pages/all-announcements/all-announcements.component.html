@@ -1,0 +1,18 @@
+<div *ngFor="let announcement of service.list">
+    <mat-card class="announcement-card">
+
+        <h3>{{announcement.title}}</h3>
+        <mat-card-content>
+            <p [innerHtml]="announcement.description">
+                <!-- {{announcement.description}} -->
+            </p>
+            <hr>
+            <p style="text-align: right;">
+                <b>Posted On:</b>
+                {{announcement.postedDate}}
+            </p>
+        </mat-card-content>
+    </mat-card>
+    <br>
+    <br>
+</div>

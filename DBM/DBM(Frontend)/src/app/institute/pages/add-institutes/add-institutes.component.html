@@ -1,0 +1,49 @@
+
+<form #form="ngForm" (submit)="onSubmit(form)">
+    
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+    <mat-card class="card-login">
+        <mat-card-title>Add Institute</mat-card-title>
+        <br>
+        <mat-card-content>
+
+            <div class="form-group">
+                <input type="hidden" name="id" [value]="service.formData.id">
+            </div>
+
+
+            <div class="form-group">
+
+                <mat-form-field color="accent" appearance="outline" class="form-input">
+                    <mat-label>Institute Name</mat-label>
+                    <input matInput name="instituteName" #instituteName="ngModel"
+                        [(ngModel)]="service.formData.instituteName" class="form-control" required>
+
+
+                </mat-form-field>
+
+
+
+                <!-- <mat-form-field color="accent" appearance="outline" class="form-input">
+                    <input type="hidden" name="InstituteName" #InstituteName="ngModel"
+                        [ngModel]="service.formData.InstituteName" class="form-control" required>
+                    <div *ngIf="InstituteNameError">
+                        <mat-error>
+                            <mat-icon>error</mat-icon> {{InstituteNameError}}
+                        </mat-error>
+                    </div>
+                </mat-form-field> -->
+            </div>
+
+
+
+
+            <br>
+            <button type="submit" mat-raised-button class="btn-login" color="primary"
+                [disabled]="form.form.invalid">Add</button>
+            <br>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+</form>

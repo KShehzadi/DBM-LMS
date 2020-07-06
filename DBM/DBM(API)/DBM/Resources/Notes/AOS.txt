@@ -1,0 +1,146 @@
+
+
+You are allowed to discuss the problem and solution design with others, but the code you submit
+must be your own. Your solution must include the certification of authenticity “I certify that the
+code in the method functions including method function main of this project are entirely my own
+work.”
+
+Process Synchronization: Producer-Consumer Problem
+
+The purpose of this programming project is to explore process synchronization. This will be
+accomplished by writing a program on the Producer / Consumer problem described below. Your
+simulation will be implemented using Pthreads. This assignment is a modification to the
+programming project “The Producer – Consumer Problem” found at the end of Chapter 7 of our
+textbook. 1. Your program must be written using C or C++ and you are required to use the
+Pthread with mutex and semaphore libraries.
+In chapter 3, we discussed how a "bounded buffer" could be used to enable producer and
+consumer processes to share memory. We described a technique using a circular buffer that can
+hold BUFFER_SIZE-1 items. By using a shared memory location count, the buffer can hold all
+BUFFER_SIZE items. This count is initialized to 0 and is incremented every time an item is
+placed into the buffer and decremented every time an item is removed from the buffer. The
+count data item can also be implemented as a counting semaphore.
+The producer can place items into the buffer only if the buffer has a free memory location to
+store the item. The producer cannot add items to a full buffer. The consumer can remove items
+from the buffer if the buffer is not empty. The consumer must wait to consume items if the buffer
+is empty.
+
+The "items" stored in this buffer will be integers. Your producer process will have to insert
+random numbers into the buffer. The consumer process will consume a number.
+Assignment Specifications
+
+The buffer used between producer and consumer processes will consist of a fixed-size array of
+type buffer_item. The queue of buffer_item objects will be manipulated using a circular array.
+The buffer will be manipulated with two functions, buffer_insert_item() and
+buffer_remove_item(), which are called by the producer and consumer threads, respectively. A
+skeleton outlining these functions can be found in buffer.h (provided with this assignment).
+The buffer_insert_item() and buffer_remove_item() functions will synchronize the producer and
+consumer using the algorithms. The buffer will also require an initialization function (not 
+supplied in buffer.h) that initializes the mutual exclusion object "mutex" along with the "empty"
+and "full" semaphores.
+The producer thread will alternate between sleeping for a random period of time and generating
+and inserting (trying to) an integer into the buffer. Random numbers will be generated using the
+rand_r() function. See the text on page 290 for an overview of the producer algorithm.
+The consumer thread will alternate between sleeping for a random period of time (thread safe of
+course) and (trying to) removing a number out of the buffer. See the text on page 290 for an
+overview of the consumer algorithm.
+The main function will initialize the buffer and create the separate producer and consumer
+threads. Once it has created the producer and consumer threads, the main() function will sleep
+for duration of the simulation. Upon awakening, the main thread will signal other threads to quit
+by setting a simulation flag which is a global variable. The main thread will join with the other
+threads and then display the simulation statistics. The main() function will be passed two
+parameters on the command line:
+• The length of time the main thread is to sleep before terminating (simulation length in
+seconds)
+• The maximum length of time the producer and consumer threads will sleep prior to
+producing or consuming a buffer_item
+A skeleton for the main function appears as:
+#include <buffer.h>
+int main( int argc, char *argv[] ){
+ Get command line arguments
+ Initialize buffer
+ Create producer thread(s)
+ Create consumer thread(s)
+ Sleep
+ Join Threads
+ Display Statistics
+ Exit
+}
+
+
+Creating Pthreads using the Pthreads API is discussed in Chapter 4 and in Assignment-1. Please
+refer to those references for specific instructions regarding creation of the producer and
+consumer Pthreads.
+The following code sample illustrates how mutex locks available in the Pthread API can be used
+to protect a critical section:
+
+
+#include <pthread.h>
+pthread_mutex_t mutex;
+/* create the mutex lock */
+pthread_mutex_init( &mutex, NULL );
+/* aquire the mutex lock */
+pthread_mutex_lock( &mutex );
+/*** CRITICAL SECTION ***/
+/* release the mutex lock */
+pthread_mutex_unlock( &mutex );
+Pthreads uses the pthread_mutex_t data type for mutex locks. A mutex is created with the
+pthread_mutex_init() function, with the first parameter being a pointer to the mutex. By passing
+NULL as a second parameter, we initialize the mutex to its default attributes. The mutex is
+acquired and released with the pthread_mutex_lock() and pthread_mutex_unlock() functions. If
+the mutex lock is unavailable when pthread_mutex_lock() is invoked, the calling thread is
+blocked until the owner invokes pthread_mutex_unlock(). All mutex functions return a value of
+0 with correct operation; if an error occurs, these functions return a nonzero error code.
+Pthreads provides two types of semaphores: named and unnamed. For this project, we will use
+unnamed semaphores. The code below illustrates how a semaphore is created:
+#include <semaphore.h>
+sem_t sem;
+/* create the semaphore and initialize it to 5 */
+sem_init( &sem, 0, 5 );
+The sem_init() function creates and initializes a semaphore. This function is passed three
+parameters: A pointer to the semaphore, a flag indicating the level of sharing, and the
+semaphore's initial value. In this example, by passing the flag 0, we are indicating that this
+semaphore can only be shared by threads belonging to the same process that created the
+semaphore. A nonzero value would allow other processes to access the semaphore as well. In
+this example, we initialize the semaphore to the value 5.
+In Chapter-6 (Section 6.6), we described the classical wait() and signal() semaphore operations.
+Pthread names the wait() and signal() operations sem_wait() and sem_post(), respectively. The
+code example below creates a binary semaphore mutex with an initial value 1 and illustrates it
+use in protecting a critical section:
+#include <semaphore.h>
+sem_t mutex;
+/* create the semaphore */
+sem_init( &mutex, 0, 1 );
+/* acquire the semaphore */
+sem_wait( &mutex );
+/*** CRITICAL SECTION ***/
+/* release the semaphore */
+sem_post( &mutex );
+
+Program Output
+
+
+Your simulation should output when various conditions occur: buffer empty/full, location of
+producer/consumer, etc.
+Submission Guidelines and Requirements
+
+
+1. Your program must be written using C or C++ and you are required to use the Pthread
+with mutex and semaphore libraries
+2. You may use the C/C++ STL (Standard Template Library) in your solution.
+3. You should use Netbeans to implement the assignment. You can download Netbeans
+with C/C++ features from the following link: https://netbeans.org/downloads/8.2/
+4. Create project in Netbeans for completing this assignment.
+5. Include your V Bindu(name) and number() in the code:
+6. Add the following statement in your solution “I certify that the code in the method
+functions including method function main of this project are entirely my own work.”
+
+// V Bindu
+// 700705108
+
+//Certificate of Authenticity: “I certify that the code in the method functions including
+method function main of this project are entirely my own work.”
+
+
+7. Add comments (about the function/variable/class) to your code as much as possible
+8. Zip your project including source files and input/output text data files (if any)
+9. Upload the zipped project file onto Blackboard

@@ -1,0 +1,10 @@
+.announcement-card{
+    margin-left: 5%;
+    margin-right: 5%;
+    box-shadow: 1px 1px 10px 1px grey;
+    
+}
+
+.announcement-card:hover {
+    transform: scale(1.01);
+}

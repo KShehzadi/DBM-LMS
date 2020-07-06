@@ -1,0 +1,89 @@
+<form #form="ngForm" autocomplete="off" (submit)=onSubmit(form)>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+        <mat-card class="card-login">
+            <mat-card-title>Assignment Submission</mat-card-title>
+            <br>
+            <mat-card-content>
+
+                <div>
+                    <input type="hidden" name="Email" value="service.formDataSubmitAssignment.Email">
+                </div>
+
+                <div>
+                    <input type="hidden" name="Id" value="service.formDataSubmitAssignment.Id">
+                </div>
+
+                <div>
+                    <input type="hidden" name="Title" value="service.formDataSubmitAssignment.Title">
+                </div>
+
+                <div>
+                    <input type="hidden" name="StartDateTime" value="service.formDataSubmitAssignment.StartDateTime">
+                </div>
+
+                <div>
+                    <input type="hidden" name="GroupId" value="service.formDataSubmitAssignment.GroupId">
+                </div>
+
+
+
+                <mat-form-field appearance="outline" class="form-input" color="accent">
+                    <mat-label>Submission Date and Time</mat-label>
+                    <input matInput [owlDateTime]="dt1" placeholder="mm-dd-yyyy, 12:00 AM" name="SubmissionDate"
+                        #SubmissionDate="ngModel" [ngModel]="service.formDataSubmitAssignment.SubmissionDate"
+                        class="form-control" required>
+                    <mat-datepicker-toggle matSuffix [owlDateTimeTrigger]="dt1"></mat-datepicker-toggle>
+                    <mat-datepicker></mat-datepicker>
+                    <!-- <div [owlDateTimeTrigger]="dt2"><i class="fa fa-calendar"></i></div> -->
+                    <owl-date-time #dt1></owl-date-time>
+                </mat-form-field>
+
+                <br>
+
+                <!-- <form [formGroup]="form" novalidate> -->
+                <mat-form-field appearance="outline" class="form-input" color="accent">
+                    <mat-label>Assignment File</mat-label>
+                    <ngx-mat-file-input name="file" #FilePath="ngModel"
+                        [ngModel]="service.formDataSubmitAssignment.FilePath" class="form-control"
+                        (change)="onFileSelected($event)" required></ngx-mat-file-input>
+                    <mat-icon matSuffix>folder</mat-icon>
+                </mat-form-field>
+
+                <section *ngFor="let R of RegistrationNumbers; let i = index;">
+                    
+                    <mat-form-field color="accent" appearance="outline" class="form-input" style="width: 345px;">
+
+                        <mat-label>Registration #</mat-label>
+                        <input matInput type="text" [(ngModel)]="R.RegNo" name="R_{{i}}" required>
+                    </mat-form-field>
+                    &nbsp;
+                    <a (click)="removeMember(i)" class="btn-RemoveMembers"><i class="fa fa-close"></i></a>
+
+                </section>
+
+
+
+                <div class="row">
+                    <div class="col-xs-6 col-xl-6 item" style="text-align: left;">
+                        &nbsp; &nbsp; &nbsp;
+                        <button mat-raised-button class="btn-AddMembers" color="primary" type="button"
+                            (click)="addGroupMember()">Add Group Member</button>
+                    </div>
+
+
+                </div>
+
+                <!-- <div class="col-xs-6 col-xl-6 item" style="text-align: right;"
+                    *ngFor="let R of RegistrationNumbers; let i = index;">
+                    <button mat-raised-button class="btn-RemoveMembers" color="primary" type="button"
+                        (click)="removeMembers(i)"><i class="fa fa-close"></i></button>
+                </div> -->
+
+                <!-- </form> -->
+                <br>
+                <button mat-raised-button class="btn-login" color="primary">Add</button>
+                <br>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</form>

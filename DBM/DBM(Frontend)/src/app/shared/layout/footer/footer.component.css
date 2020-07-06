@@ -1,0 +1,40 @@
+.my-footer{
+
+    position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+    /* background-color: rgb(34, 0, 34); */
+}
+
+.icons-center {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .part1{
+      
+      background-color: rgb(75, 3, 75);
+      color: white;
+      text-align: center;
+      font-size: 35px;
+      border: 1px solid black; 
+      height: 300px;
+  }
+
+  .mybtn{
+      outline-color: white;
+      border: 1px solid white;
+      color: white;
+      background-color: transparent;
+      width: 200px;
+      height: 60px;
+      font-size: 15px;
+  }
+
+  .mybtn:hover{
+      background-color: white;
+      color: purple;
+  }

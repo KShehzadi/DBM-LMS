@@ -1,0 +1,131 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+import java.util.Arrays;
+
+
+public class Solution {
+ 
+    //Complete the climbingLeaderboard function below.
+    static int[] climbingLeaderboard(int[] scores, int[] alice) {
+        //int[] Ascores = new int[alice.length];
+        int []ranking = new int[scores.length];
+        int [] Aranking = new int[alice.length];
+        //Collections.reverse(Arrays.asList(alice));
+        int scoreLength = scores.length;
+        int aliceLength = alice.length;
+        ranking[0] = 1;
+       for(int i = 1; i< scoreLength; i++)
+       {
+            if(scores[i] == scores[i-1])
+                {
+                    ranking[i] = ranking[i-1];
+                }
+                else
+                {
+                    ranking[i] = ranking[i-1] + 1;
+                }
+       }
+       
+       for(int i = aliceLength-1; i >= 0; i--)
+       {
+           if(alice[i] >= scores[0])
+           {
+               Aranking[i] = 1;
+           }
+           else
+           {
+            for(int k = 1; k< scoreLength; k++)
+            {
+                if(alice[i]  == scores[k])
+                {
+                    Aranking[i] = ranking[k];
+                    break;
+                }
+                else if(alice[i] < scores[k] && (k+1) < scoreLength && alice[i]>scores[k+1] )
+                {
+                    Aranking[i] = ranking[k+1] ;  
+                    break;
+                }
+                else if(alice[i]<scores[scoreLength-1])
+                {
+                    Aranking[i] = ranking[scoreLength-1] + 1;
+                    break;
+                }
+                else if(alice[i]<scores[scoreLength-1] && i-1 > 0 )
+                {
+                    
+                    if(alice[i] == scores[i+1])
+                    {
+                        Aranking[i] = Aranking[i+1];
+                    }
+                    else
+                    {
+                        Aranking[i] = Aranking[i+1] + 1;
+                    }
+                   // Aranking[i] = Aranking[i+1] + 1;
+                    break;
+                }
+                
+            }
+           
+           }
+          // count++;
+          
+       }
+       return Aranking;
+
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int scoresCount = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        int[] scores = new int[scoresCount];
+
+        String[] scoresItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        for (int i = 0; i < scoresCount; i++) {
+            int scoresItem = Integer.parseInt(scoresItems[i]);
+            scores[i] = scoresItem;
+        }
+
+        int aliceCount = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        int[] alice = new int[aliceCount];
+
+        String[] aliceItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        for (int i = 0; i < aliceCount; i++) {
+            int aliceItem = Integer.parseInt(aliceItems[i]);
+            alice[i] = aliceItem;
+        }
+
+        int[] result = climbingLeaderboard(scores, alice);
+
+        for (int i = 0; i < result.length; i++) {
+            bufferedWriter.write(String.valueOf(result[i]));
+
+            if (i != result.length - 1) {
+                bufferedWriter.write("\n");
+            }
+        }
+
+        bufferedWriter.newLine();
+
+        bufferedWriter.close();
+
+        scanner.close();
+    }
+}
